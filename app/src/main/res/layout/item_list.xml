@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bike"
+            type="com.example.framgia.myapplication.data.local.model.Bike" />
+        <variable
+            name="viewModel"
+            type="com.example.framgia.myapplication.screen.MainViewModel"/>
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:id="@+id/text_id"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(bike.ID)}" />
+
+        <TextView
+            android:id="@+id/textx_asd"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:maxLines="1"
+            android:text="@={bike.name}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_id" />
+
+
+        <ImageButton
+            android:onClick="@{() -> viewModel.onClickbuttonDelete()}"
+            android:id="@+id/button_delete_one"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_delete_forever_black_24dp"
+            tools:ignore="VectorDrawableCompat" />
+    </android.support.constraint.ConstraintLayout>
+
+
+</layout>
